@@ -7,13 +7,7 @@ function SignUp () {
     const [NewPassword, setNewPassword] = useState('');
 
     const [Ref, setRef] = useState('');
-    function handleWarn () {
-        let user = JSON.parse(localStorage.getItem ('user'));
-        if (!user || user.length > 0) { 
-            return true;
-        }
-        return false;
-    }
+
     const handleAddNewUser = () => {
         let user = JSON.parse(localStorage.getItem ('user'));
         if (!user || user.length > 0) { 

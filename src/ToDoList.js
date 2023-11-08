@@ -14,8 +14,6 @@ export default function ToDoList () {
     const [NewTitle, setNewTitle] = useState ('');
     const [NewTask, setNewTask] = useState ('');
 
-    const [isCompletedScreen, setIsCompletedScreen] = useState (false);
-
     const handleAddInUncompleteList = () => {
         let newToDo= {
           title: NewTitle,

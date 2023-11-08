@@ -172,13 +172,6 @@ h1, .h3{
     box-shadow: 0px 2px 4px rgb(39, 38, 38);
 }
 
-.todo-input-item input:focus{
-  outline: 2px solid #666df6;
-}
-
-
-
-
 .primary-btn{
   position: absolute;
   width: 100%;
@@ -194,9 +187,6 @@ h1, .h3{
   background-color: #4e55dd;
 }
 
-.btn-area{
-  margin-bottom: 10px;
-}
 .a:link, .a:visited {
   position: absolute;
   top: 0;
@@ -212,101 +202,6 @@ h1, .h3{
 
 .a:hover, .a:active {
   background-color: #4e55dd;
-}
-
-.secondaryBtn{
-  background-color: rgb(92, 92, 92);
-  color: white;
-  border-radius: 0px;
-  border: none;
-  padding: 10px;
-  width: fit-content;
-  cursor: pointer;
-}
-
-.btn-area .active{
-  background-color: #666df6;
-}
-.UncompleteList {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-}
-.CompleteList {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  margin-left: 50%;
-}
-.UncompleteList-name {
-  display: flex;
-  width: 40%;
-  padding: 25px;
-  margin-left: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-}
-.CompleteList-name {
-  display: flex;
-  width: 40%;
-  padding: 25px;
-  margin-left: 50%;
-  margin-right: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-}
-.UncompleteList-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(92, 92, 92);
-  width: 40%;
-  padding: 25px;
-  margin-left: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0px 2px 4px rgb(39, 38, 38);
-}
-.CompleteList-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(92, 92, 92);
-  margin-left: 50%;
-  width: 40%;
-  padding: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0px 2px 4px rgb(39, 38, 38);
-}
-.todo-list-item{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(92, 92, 92);
-  padding: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0px 2px 4px rgb(39, 38, 38);
-}
-
-.todo-list-item h3{
-  font-size: 25px;
-  color: #98adfb;
-  font-weight: bold;
-  margin: 0px;
-}
-
-.todo-list-item p{
-  margin-top: 8px;
-  font-size: 14px;
-  color: rgb(179, 178, 178);
-
 }
 
 .icon{

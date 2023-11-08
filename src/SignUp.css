@@ -35,15 +35,10 @@ body{
   .button.focus {
     outline: 2px solid #666df6;
   }
-  .SignIn {
-    margin-left: 450px;
-  }
+
   input[type=text] {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
   }
-  
-  .btn-area .active{
-    background-color: #666df6;
-  }
+

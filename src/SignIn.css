@@ -35,23 +35,9 @@ body{
   .button.focus {
     outline: 2px solid #666df6;
   }
-  .SignUp {
-    margin-left: 450px;
-  }
+
   input[type=text] {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
   }
-  .a:link, .a:visited {
-    background-color: #666df6;
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
- }
- 
- .a:hover, .a:active {
-    background-color: #4e55dd;
- }

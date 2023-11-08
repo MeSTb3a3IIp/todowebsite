@@ -6,13 +6,6 @@ import SignUp from "./SignUp";
 import ToDoList from "./ToDoList";
 
 export default function App() {
-    function handleWarn () {
-        let user = JSON.parse(localStorage.getItem ('user'));
-        if (!user || user.length > 0) { 
-            return true;
-        }
-        return false;
-    }
     return (
         <Router>
             <div>
