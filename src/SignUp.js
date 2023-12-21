@@ -35,7 +35,7 @@ function SignUp () {
     }
 
     function correctSignUp () {
-        if (NewPassword.length > 16 || NewPassword.length <  6 || NewLogin.length < 2 || NewLogin.length  > 16) {
+        if (NewPassword.trimStart().trimEnd().length > 16 || NewPassword.trimStart().trimEnd().length <  6 || NewLogin.trimStart().trimEnd().length < 2 || NewLogin.trimStart().length  > 16) {
             return false;
         }
         for (var i = 0; i < Users.length; i++) {
@@ -74,17 +74,17 @@ function SignUp () {
                       placeholder="Set password" />
               </div>
               
-              <div className="button">
+              <div className="Create">
                   <a
-                      
+                      className='ref bottom-left'
                       onClick = { correctSignUp() ? handleAddNewUser : handleWarnSignUp}
                       href = {Ref}
                       >
                       Create 
                   </a>
               </div>
-              <div className="button">
-                  <a  href = "/SignIn">Sign In?</a>
+              <div className="SignUp">
+                  <a  className='ref top-right' href = "/SignIn">Sign In?</a>
               </div>
           </div>
       </div>

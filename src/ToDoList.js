@@ -14,19 +14,31 @@ export default function ToDoList () {
     const [NewTitle, setNewTitle] = useState ('');
     const [NewTask, setNewTask] = useState ('');
 
+    
+    function handleCheckNewToDo () {
+        
+        if(NewTitle.trimStart() !== '')
+        {
+            return true;
+        }
+        return false;
+    }
     const handleAddInUncompleteList = () => {
-        let newToDo= {
+        let todo= {
           title: NewTitle,
           task: NewTask,
         };
         let updateList = [...UncompleteList];
-        updateList.push (newToDo);
+        updateList.push (todo);
         setUncompleteList (updateList);
         Users[Index].uncomplete_list = updateList;
         localStorage.setItem('users', JSON.stringify(Users));
         setNewTitle ('');
         setNewTask ('');
         
+    }
+    const handleErrorToDo = () => {
+        alert('Для добавления задачи необходимо написать её заголовок');
     }
     const handleDeleteInUncompleteList = (index) => {
         let updateList = [...UncompleteList];
@@ -48,7 +60,54 @@ export default function ToDoList () {
         setCompleteList (updateList);
         Users[Index].complete_list = updateList;
         localStorage.setItem ('users', JSON.stringify (Users));
-      }
+    }
+    const [currentList, setCurrentList] = useState(null)
+    const [currentTodo, setCurrentTodo] = useState(null)
+    const [currentIndex, setCurrentIndex] = useState(null)
+    function dragStartHandler(e, List, todo, index) {
+        setCurrentList(List)
+        setCurrentTodo(todo)
+        setCurrentIndex(index)
+    }
+    function dragEndHandler(e) {
+        e.preventDefault()
+    }
+    function dragOverHandler(e) {
+        e.preventDefault()
+    }
+    function dragLeaveHandler(e) {
+        e.preventDefault()
+
+    }
+    function dropHandler(e, List, todo) {
+        e.preventDefault()
+        if(List !== currentList)
+        {
+            currentList.splice(currentIndex, 1)
+            List.push(currentTodo)
+        
+            if(List == UncompleteList)
+            {
+                setCompleteList(currentList)
+                setUncompleteList(List)
+                Users[Index].uncomplete_list = List;
+                Users[Index].complete_list = currentList;
+            }
+            else if(List == CompleteList)
+            {
+                setUncompleteList(currentList)
+                setCompleteList(List)
+                Users[Index].uncomplete_list = currentList;
+                Users[Index].complete_list = List;
+                
+            }
+            
+            localStorage.setItem ('users', JSON.stringify (Users));
+            setCurrentList(null)
+            setCurrentIndex(null)
+            setCurrentTodo(null)
+        }
+    }
     useEffect (() => {
         
         let log = JSON.parse (localStorage.getItem ('user'));
@@ -105,7 +164,7 @@ export default function ToDoList () {
                             <button
                                 className="primary-btn"
                                 type="button"
-                                onClick={handleAddInUncompleteList}>
+                                onClick={handleCheckNewToDo()? handleAddInUncompleteList : handleErrorToDo}>
                             Add
                             </button>
                         </div>
@@ -116,7 +175,13 @@ export default function ToDoList () {
                 </div>
                 <div className = "block-uncomplete-list-items">
                     { UncompleteList.map ((todo, index) => (
-                    <div className="block-uncomplete-list-item" key={index}>
+                    <div className="block-uncomplete-list-item" draggable={"true"} key={index}
+                        onDragStart={(e)=>dragStartHandler(e, UncompleteList, todo, index)}
+                        onDragEnd={(e)=>dragEndHandler(e) }
+                        onDragOver={(e)=>dragOverHandler(e) }
+                        onDragLeave={(e)=>dragLeaveHandler(e) }
+                        onDrop={(e)=>dropHandler(e, UncompleteList, todo) }
+                    >
                         <div>
                             <h3>{todo.title}</h3>
                             <p>{todo.task}</p>
@@ -142,7 +207,13 @@ export default function ToDoList () {
                 </div>
                 <div className = "block-complete-list-items">
                 { CompleteList.map ((todo, index) => (
-                    <div className = "block-complete-list-item" key={index}>
+                    <div className = "block-complete-list-item" draggable={"true"} key={index}
+                        onDragStart={(e)=>dragStartHandler(e, CompleteList, todo, index)}
+                        onDragEnd={(e)=>dragEndHandler(e) }
+                        onDragOver={(e)=>dragOverHandler(e) }
+                        onDragLeave={(e)=>dragLeaveHandler(e) }
+                        onDrop={(e)=>dropHandler(e, CompleteList, todo) }
+                    >
                         <div>
                             <h3>{todo.title}</h3>
                             <p>{todo.task}</p>
@@ -159,4 +230,4 @@ export default function ToDoList () {
             </div>
         </div>          
     )
-};
+}

@@ -48,16 +48,16 @@ function SignIn () {
                     onChange={e => setPassword (e.target.value)}
                     placeholder="Set password" />
             </div>
-            <div className="button">
+            <div className="Go">
                 <a
-                    
+                    className='ref bottom-left'
                     href = {correctLoginPassword() ? "/ToDoList" : "/SignIn"}
                     onClick = {correctLoginPassword() ? handleSetLogin : handleWarnSignIn}>
                     Go 
                 </a>
             </div>
-            <div className="button">
-                <a  href = "/">Sign Up?</a>
+            <div className="SignUp">
+                <a  className='ref top-right' href = "/">Sign Up?</a>
             </div>
         </div>
     );
